@@ -54,5 +54,6 @@ Here's the official guide: https://packaging.python.org/tutorials/installing-pac
 Just remember that you want to use Maya's version of python interpreter (mayapy) and "pip".
 
 # Change Log
+2025-01-28 - add PySide6 support for Maya 2025
 2018-10-23 (ver 1.0) - original release with Adaptive, Butterworth and Median filters
 
