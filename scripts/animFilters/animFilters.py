@@ -29,8 +29,10 @@ try:
     from PySide6 import QtWidgets, QtUiTools
 except ImportError:
     from PySide2 import QtWidgets, QtUiTools
-
-import shiboken2
+try:
+    import shiboken6 as shiboken
+except ImportError:
+    import shiboken2 as shiboken
 
 import maya.cmds as cmds
 import maya.OpenMayaUI as MayaUI
@@ -275,7 +277,7 @@ def loadAnimFiltersUI(uifilename, parent=None):
 class AnimFiltersUI(QtWidgets.QMainWindow):
     def __init__(self):
         mainUI = SCRIPT_LOC + "/animFilters.ui"
-        MayaMain = shiboken2.wrapInstance(long(MayaUI.MQtUtil.mainWindow()), QtWidgets.QWidget)
+        MayaMain = shiboken.wrapInstance(long(MayaUI.MQtUtil.mainWindow()), QtWidgets.QWidget)
         super(AnimFiltersUI, self).__init__(MayaMain)
 
         # main window load / settings
